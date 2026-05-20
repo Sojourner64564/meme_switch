@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meme_switch/meme_switch.dart';
+import 'package:meme_switch/widget_assets/widget_icons.dart';
 
-import 'grey_cloud_custom_painter.dart';
-import 'white_cloud__custom_painter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,21 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: CustomPaint(
-                size: Size(100, 100),
-                painter: WhiteCloudPainter(),
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: CustomPaint(
-                size: Size(100, 100),
-                painter: GreyCloudPainter(),
-              ),
-            ),
+
             Container(
               color: Colors.blue,
               width: 400,
@@ -70,6 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            Icon(
+                WidgetIcons.star,
+            size: 90,
+            ),
+
             SizedBox(
               height: 5,
             ),

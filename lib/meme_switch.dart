@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:meme_switch/grey_cloud_custom_painter.dart';
 import 'package:meme_switch/white_cloud__custom_painter.dart';
+import 'package:meme_switch/widget_assets/widget_colors.dart';
 
 class MemeSwitch extends StatefulWidget {
   MemeSwitch({super.key});
 
   bool selected = false;
+  final Duration duration = Duration(milliseconds: 150);
 
   @override
   State<MemeSwitch> createState() => _MemeSwitchState();
@@ -22,23 +24,25 @@ class _MemeSwitchState extends State<MemeSwitch> {
         height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          color: widget.selected ? Colors.black26 : Colors.blue,
+          color: widget.selected ? WidgetColors.dayColor : WidgetColors.nightColor,
         ),
-        duration: Duration(milliseconds: 150),
+        duration: widget.duration,
         child: Stack(
           clipBehavior: Clip.hardEdge,
           children: [
-      
-            Positioned(
+
+            AnimatedPositioned(
               left: 0,
-              top: 90,
+              top: widget.selected ? 250 : 90,
+              duration: widget.duration,
               child: CustomPaint(
                 painter: GreyCloudPainter(),
               ),
             ),
-            Positioned(
+            AnimatedPositioned(
               left: 0,
-              top: 120,
+              top: widget.selected ? 250 : 120,
+              duration: widget.duration,
               child: CustomPaint(
                 painter: WhiteCloudPainter(),
               ),
@@ -47,13 +51,13 @@ class _MemeSwitchState extends State<MemeSwitch> {
             AnimatedPositioned(
               left: widget.selected ? 80 : -130,
               top: -125,
-              duration: Duration(milliseconds: 150),
+              duration: widget.duration,
               child: Container(
                 width: 400,
                 height: 400,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(300)),
-                  color: Colors.white12,
+                  color: WidgetColors.white12Color,
                 ),
                 child: Align(
                   alignment: Alignment.center,
@@ -62,7 +66,7 @@ class _MemeSwitchState extends State<MemeSwitch> {
                     height: 300,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(300)),
-                      color: Colors.white12,
+                      color: WidgetColors.white12Color,
                     ),
                     child: Align(
                       alignment: Alignment.center,
@@ -71,7 +75,7 @@ class _MemeSwitchState extends State<MemeSwitch> {
                         height: 200,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(300)),
-                          color: Colors.white12,
+                          color: WidgetColors.white12Color,
                         ),
                         child: Align(
                           alignment: Alignment.center,
@@ -90,7 +94,7 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                     width: 100,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(100)),
-                                      color: Colors.yellow,
+                                      color: WidgetColors.sunColor,
                                      /* boxShadow: [
                                         BoxShadow(
                                           color: Colors.black26,
@@ -102,13 +106,13 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                   ),
                                   AnimatedPositioned(
                                     left: widget.selected ? 0 : 100, //100
-                                    duration: Duration(milliseconds: 150),
+                                    duration: widget.duration,
                                     child: Container(
                                       height: 100,
                                       width: 100,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.all(Radius.circular(100)),
-                                        color: Colors.blueGrey,
+                                        color: WidgetColors.moonColor,
                                       ),
                                       child: Stack(
                                         children: [
@@ -120,7 +124,7 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                               height: 20,
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                color: Colors.grey,
+                                                color: WidgetColors.craterMoonColor,
                                               ),
                                             ),
                                           ),
@@ -132,7 +136,7 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                               height: 35,
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                color: Colors.grey,
+                                                color: WidgetColors.craterMoonColor,
                                               ),
                                             ),
                                           ),
@@ -144,7 +148,7 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                               height: 20,
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                color: Colors.grey,
+                                                color: WidgetColors.craterMoonColor,
                                               ),
                                             ),
                                           ),
@@ -163,10 +167,6 @@ class _MemeSwitchState extends State<MemeSwitch> {
                 ),
               ),
             ),
-      
-
-      
-      
           ],
         ),
       ),

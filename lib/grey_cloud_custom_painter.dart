@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:meme_switch/widget_assets/widget_colors.dart';
 
 class GreyCloudPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.grey;
+      ..color = WidgetColors.backgroundCloudColor;
     final path = Path();
 
     path.addOval(Rect.fromLTWH(0, 5, 50, 50));

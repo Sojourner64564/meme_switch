@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:meme_switch/widget_assets/widget_colors.dart';
 
 class WhiteCloudPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white;
+      ..color = WidgetColors.whiteColor;
 
     final path = Path();
 
