@@ -18,6 +18,7 @@ class WhiteCloudPainter extends CustomPainter {
     path.addOval(Rect.fromLTWH(280, -80, 110, 110));
 
     path.addRect(Rect.fromLTWH(0,20,400,40));
+    path.addRect(Rect.fromLTWH(0,60,400,40));
     path.addRect(Rect.fromLTWH(340,-20,60,50));
 
     canvas.drawPath(path, paint);

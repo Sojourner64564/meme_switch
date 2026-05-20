@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meme_switch/meme_switch.dart';
+import 'package:meme_switch/white_cloud__custom_painter.dart';
 
 
 void main() {
@@ -37,12 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
-
-
-            SizedBox(
-              height: 5,
-            ),
             MemeSwitch(),
           ],
         ),
