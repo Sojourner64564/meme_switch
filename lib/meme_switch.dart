@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:meme_switch/grey_cloud_custom_painter.dart';
 import 'package:meme_switch/white_cloud__custom_painter.dart';
 import 'package:meme_switch/widget_assets/widget_colors.dart';
+import 'package:meme_switch/widget_assets/widget_icons.dart';
 
 class MemeSwitch extends StatefulWidget {
   MemeSwitch({super.key});
 
   bool selected = false;
-  final Duration duration = Duration(milliseconds: 150);
+  final Duration duration = Duration(milliseconds: 1000);
+  final Curve curve = Curves.elasticOut;
 
   @override
   State<MemeSwitch> createState() => _MemeSwitchState();
 }
 
 class _MemeSwitchState extends State<MemeSwitch> {
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -24,34 +25,152 @@ class _MemeSwitchState extends State<MemeSwitch> {
         height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          color: widget.selected ? WidgetColors.dayColor : WidgetColors.nightColor,
+          color: widget.selected
+              ? WidgetColors.dayColor
+              : WidgetColors.nightColor,
         ),
         duration: widget.duration,
+        curve: widget.curve,
         child: Stack(
-          clipBehavior: Clip.hardEdge,
           children: [
-
+            /// Облако серого цвета с анимацией ухода на заднем фоне кнопки
             AnimatedPositioned(
               left: 0,
               top: widget.selected ? 250 : 90,
               duration: widget.duration,
-              child: CustomPaint(
-                painter: GreyCloudPainter(),
-              ),
+              curve: widget.curve,
+              child: CustomPaint(painter: GreyCloudPainter()),
             ),
+
+            /// Облако белого цвета с анимацией ухода на заднем фоне кнопки
             AnimatedPositioned(
               left: 0,
               top: widget.selected ? 250 : 120,
               duration: widget.duration,
-              child: CustomPaint(
-                painter: WhiteCloudPainter(),
+              curve: widget.curve,
+              child: CustomPaint(painter: WhiteCloudPainter()),
+            ),
+
+            /// звезды на заднем фоне кнопки с анимацией ухода
+            AnimatedPositioned(
+              left: 0,
+              top: widget.selected ? 0 : 250,
+              duration: widget.duration,
+              curve: widget.curve,
+              child: SizedBox(
+                height: 150,
+                width: 220,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 15,
+                      left: 70,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 22,
+                      ),
+                    ),
+                    Positioned(
+                      top: 30,
+                      left: 140,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 8,
+                      ),
+                    ),
+                    Positioned(
+                      top: 35,
+                      left: 190,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 22,
+                      ),
+                    ),
+                    Positioned(
+                      top: 50,
+                      left: 30,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 10,
+                      ),
+                    ),
+                    Positioned(
+                      top: 70,
+                      left: 80,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 10,
+                      ),
+                    ),
+                    Positioned(
+                      top: 120,
+                      left: 75,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 10,
+                      ),
+                    ),
+                    Positioned(
+                      top: 100,
+                      left: 40,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 8,
+                      ),
+                    ),
+                    Positioned(
+                      top: 115,
+                      left: 33,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 8,
+                      ),
+                    ),
+                    Positioned(
+                      top: 70,
+                      left: 130,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 8,
+                      ),
+                    ),
+                    Positioned(
+                      top: 90,
+                      left: 170,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 12,
+                      ),
+                    ),
+                    Positioned(
+                      top: 110,
+                      left: 145,
+                      child: Icon(
+                        WidgetIcons.star,
+                        color: WidgetColors.whiteColor,
+                        size: 15,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-      
+
             AnimatedPositioned(
               left: widget.selected ? 80 : -130,
               top: -125,
               duration: widget.duration,
+              curve: widget.curve,
               child: Container(
                 width: 400,
                 height: 400,
@@ -80,22 +199,26 @@ class _MemeSwitchState extends State<MemeSwitch> {
                         child: Align(
                           alignment: Alignment.center,
                           child: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 widget.selected = !widget.selected;
                               });
                             },
                             child: ClipRRect(
-                              borderRadius: BorderRadius.all(Radius.circular(100)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(100),
+                              ),
                               child: Stack(
                                 children: [
                                   Container(
                                     height: 100,
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(100),
+                                      ),
                                       color: WidgetColors.sunColor,
-                                     /* boxShadow: [
+                                      /* boxShadow: [
                                         BoxShadow(
                                           color: Colors.black26,
                                           spreadRadius: 1,
@@ -107,11 +230,14 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                   AnimatedPositioned(
                                     left: widget.selected ? 0 : 100, //100
                                     duration: widget.duration,
+                                    curve: widget.curve,
                                     child: Container(
                                       height: 100,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(Radius.circular(100)),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(100),
+                                        ),
                                         color: WidgetColors.moonColor,
                                       ),
                                       child: Stack(
@@ -123,8 +249,11 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                               width: 20,
                                               height: 20,
                                               decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                color: WidgetColors.craterMoonColor,
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(100),
+                                                ),
+                                                color: WidgetColors
+                                                    .craterMoonColor,
                                               ),
                                             ),
                                           ),
@@ -135,8 +264,11 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                               width: 35,
                                               height: 35,
                                               decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                color: WidgetColors.craterMoonColor,
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(100),
+                                                ),
+                                                color: WidgetColors
+                                                    .craterMoonColor,
                                               ),
                                             ),
                                           ),
@@ -147,8 +279,11 @@ class _MemeSwitchState extends State<MemeSwitch> {
                                               width: 20,
                                               height: 20,
                                               decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                color: WidgetColors.craterMoonColor,
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(100),
+                                                ),
+                                                color: WidgetColors
+                                                    .craterMoonColor,
                                               ),
                                             ),
                                           ),
