@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meme_switch/meme_switch.dart';
-import 'package:meme_switch/white_cloud__custom_painter.dart';
+
 
 
 void main() {
@@ -18,30 +18,26 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key});
-
-  bool value = false;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.brown,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            MemeSwitch(),
-          ],
+      body: SafeArea(
+        child: Center(
+          child: MemeSwitch(
+            duration: Duration(milliseconds: 650),
+            onTap: (bool value){
+              print(value ? 'Если $value, то сейчас ночь' : 'А если $value то день');
+            },
+          ),
         ),
       ),
     );
   }
 }
+
+
