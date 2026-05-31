@@ -6,6 +6,9 @@
 Flutter version: 3.35.4
 Dart version: 3.9.2
 
-| <img src="meme_switch/meme_switch_origin.jpg" width="250"> | <img src="meme_switch_result.gif" width="250"> |
+**Кнопка из видео:**
+<img src="meme_switch/meme_switch_origin.jpg" width="250">
 
+**Моя кнопка**
+<img src="meme_switch_result.gif" width="250">
 
