@@ -8,10 +8,10 @@ Dart version: 3.9.2
 
 **То как кнопка выглядила в видео:**
 
-![Картинка из видео](meme_switch_origin.jpg)
+![Картинка из видео](meme_switch/meme_switch_origin.jpg)
 
 **То как я ее сделал:**
 
-![Кнопка написанная на FLutter](meme_switch_result.gif)
+![Кнопка написанная на FLutter](meme_switch/meme_switch_result.gif)
 
 
