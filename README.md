@@ -6,12 +6,6 @@
 Flutter version: 3.35.4
 Dart version: 3.9.2
 
-**То как кнопка выглядила в видео:**
-
-![Картинка из видео](meme_switch/meme_switch_origin.jpg)
-
-**То как я ее сделал:**
-
-![Кнопка написанная на FLutter](meme_switch/meme_switch_result.gif)
+| <img src="meme_switch/meme_switch_origin.jpg" width="250"> | <img src="meme_switch_result.gif" width="250"> |
 
 
