@@ -1,16 +1,17 @@
 # meme_switch
 
-A new Flutter project.
+Кнопка написанная на Flutter по дизайну из мемного видео из ТикТока / Flutter meme button from TikTok video
+Ссылка на видео: https://www.tiktok.com/@verticalinstitute/video/7311654102423883016
 
-## Getting Started
+Flutter version: 3.35.4
+Dart version: 3.9.2
 
-This project is a starting point for a Flutter application.
+**То как кнопка выглядила в видео:**
 
-A few resources to get you started if this is your first Flutter project:
+![Картинка из видео](meme_switch_origin.jpg)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**То как я ее сделал:**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Кнопка написанная на FLutter](meme_switch_result.gif)
+
+
