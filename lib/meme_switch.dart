@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meme_switch/grey_cloud_custom_painter.dart';
-import 'package:meme_switch/white_cloud__custom_painter.dart';
+import 'package:meme_switch/custom_painter/grey_cloud_custom_painter.dart';
+import 'package:meme_switch/custom_painter/white_cloud__custom_painter.dart';
 import 'package:meme_switch/widget_assets/widget_colors.dart';
 import 'package:meme_switch/widget_assets/widget_icons.dart';
 
